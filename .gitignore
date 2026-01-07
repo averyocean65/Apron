@@ -42,3 +42,6 @@
 
 # Output dir
 build/
+
+# Visual Studio
+.vs/
