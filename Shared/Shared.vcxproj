@@ -151,11 +151,12 @@
     <ClInclude Include="apron\core\init.hpp" />
     <ClInclude Include="apron\instructions\instruction.hpp" />
     <ClInclude Include="apron\instructions\instruction_type.h" />
+    <ClInclude Include="apron\utils\splitter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="apron\core\init.cpp" />
     <ClCompile Include="apron\instructions\instruction.cpp" />
-    <ClCompile Include="apron\instructions\instruction_type.cpp" />
+    <ClCompile Include="apron\utils\splitter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -81,6 +81,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)build\bin\$(ProjectName)\$(Configuration)-$(Platform)</OutDir>
     <IntDir>$(SolutionDir)build\obj\$(ProjectName)\$(Configuration)-$(Platform)</IntDir>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)build\bin\$(ProjectName)\$(Configuration)-$(Platform)</OutDir>
@@ -101,8 +102,11 @@
       <AdditionalDependencies>apron-shared.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)apron-shared.dll"</Command>
+      <Command>copy /y "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)" </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,8 +127,11 @@
       <AdditionalDependencies>apron-shared.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)apron-shared.dll"</Command>
+      <Command>copy /y "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)" </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -141,8 +148,11 @@
       <AdditionalDependencies>apron-shared.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)apron-shared.dll"</Command>
+      <Command>copy /y "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)" </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -163,11 +173,18 @@
       <AdditionalDependencies>apron-shared.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)apron-shared.dll"</Command>
+      <Command>copy /y "$(SolutionDir)build\lib\Shared\$(Configuration)-$(Platform)\apron-shared.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)" </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="devices\cpu.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="devices\cpu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
