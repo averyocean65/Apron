@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="apron\core\core.hpp" />
-    <ClInclude Include="apron\core\init.h" />
+    <ClInclude Include="apron\core\init.hpp" />
     <ClInclude Include="apron\instructions\instruction.hpp" />
     <ClInclude Include="apron\instructions\instruction_type.hpp" />
     <ClInclude Include="apron\utils\splitter.hpp" />

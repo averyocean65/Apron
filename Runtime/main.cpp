@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <apron/core/init.h>
+#include <apron/core/init.hpp>
 #include <apron/instructions/instruction.hpp>
 #include <apron/utils/splitter.hpp>
 
