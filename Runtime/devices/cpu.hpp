@@ -21,5 +21,8 @@ public:
     
     void execute_instruction(apron::instructions::instruction instruction);
     uint32_t* get_register(int index);
+
+    bool does_register_exist(int address);
+    
     void print_state();
 };
