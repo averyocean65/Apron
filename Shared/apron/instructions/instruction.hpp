@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <cstdint>
-#include "instruction_type.h"
+#include "instruction_type.hpp"
 
 namespace apron
 {

@@ -1,4 +1,4 @@
-﻿#include "splitter.h"
+﻿#include "splitter.hpp"
 
 APRON_API void apron::utils::split_u16(uint16_t base, uint8_t* a, uint8_t* b)
 {

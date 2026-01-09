@@ -1,5 +1,5 @@
-﻿#include "cpu.h"
-#include <apron/utils/splitter.h>
+﻿#include "cpu.hpp"
+#include <apron/utils/splitter.hpp>
 
 using namespace apron::instructions;
 

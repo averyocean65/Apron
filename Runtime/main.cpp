@@ -2,9 +2,9 @@
 
 #include <apron/core/init.hpp>
 #include <apron/instructions/instruction.hpp>
-#include <apron/utils/splitter.h>
+#include <apron/utils/splitter.hpp>
 
-#include "devices/cpu.h"
+#include "devices/cpu.hpp"
 
 using namespace apron::instructions;
 
