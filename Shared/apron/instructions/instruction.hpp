@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <cstdint>
 #include "instruction_type.hpp"
+#include "../core/core.hpp"
 
 namespace apron
 {
@@ -13,8 +14,8 @@ namespace apron
         uint16_t additional;
         uint32_t data;
     
-        instruction(uint16_t pId, uint16_t pAdditional, uint32_t pData);
-        instruction(instruction_type pId, uint16_t pAdditional, uint32_t pData);
+        APRON_API instruction(uint16_t pId, uint16_t pAdditional, uint32_t pData);
+        APRON_API instruction(instruction_type pId, uint16_t pAdditional, uint32_t pData);
     };
 }
 }
