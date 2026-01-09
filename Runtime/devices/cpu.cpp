@@ -1,16 +1,22 @@
 ﻿#include "cpu.h"
+#include <apron/utils/splitter.h>
 
-cpu::cpu(int register_count)
-    : m_register_count(register_count)
+using namespace apron::instructions;
+
+#define REGISTER_FUNCTION(type, func) m_function_map.emplace(type, func)
+
+void move_memory(instruction instruction)
 {
-    m_registers = std::vector<uint32_t>(register_count);
+    uint8_t source = 0x00;
+    uint8_t destination = 0x00;
+    apron::utils::split_u16(instruction.additional, &source, &destination);
 }
 
-void cpu::execute_instruction(apron::instructions::instruction instruction)
+cpu::cpu(int register_count)
+    : m_register_count(register_count), m_registers(register_count), m_function_map()
 {
-    printf("Running instruction: %#04X %#04X %#08X", instruction.id, instruction.additional, instruction.data);
-
-    // TODO
+    // Register functions
+    REGISTER_FUNCTION(instruction_type::MEMORY_MOVE, move_memory);
 }
 
 uint32_t* cpu::get_register(int index)
@@ -23,3 +29,17 @@ uint32_t* cpu::get_register(int index)
     return &m_registers[index];
 }
 
+void cpu::execute_instruction(apron::instructions::instruction instruction)
+{
+    printf("Running instruction: %#04X %#04X %#08X\n", instruction.id, instruction.additional, instruction.data);
+
+    instruction_type type = static_cast<instruction_type>(instruction.id);
+    if (!m_function_map.count(type))
+    {
+        printf("Instruction implementation was not found!\n");
+        return;
+    }
+
+    CpuFunction func = m_function_map[type];
+    func(instruction);
+}

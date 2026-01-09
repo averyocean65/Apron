@@ -13,3 +13,5 @@ APRON_API void apron::utils::split_u32(uint32_t base, uint8_t* a, uint8_t* b, ui
     *c = base >> 8;
     *d = base >> 0;
 }
+
+

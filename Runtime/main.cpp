@@ -16,7 +16,5 @@ int main(int argc, char** argv) {
     }
 
     cpu my_cpu = cpu(4);
-    *my_cpu.get_register(0) = 5;
-
-    printf("Register value: %u", *my_cpu.get_register(0));
+    my_cpu.execute_instruction(instruction(instruction_type::MEMORY_MOVE, 0x0, 0x0));
 }
