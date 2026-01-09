@@ -5,7 +5,8 @@
 
 #include <apron/instructions/instruction.hpp>
 
-typedef void (*CpuFunction)(apron::instructions::instruction);
+class cpu;
+typedef void (*CpuFunction)(cpu*, apron::instructions::instruction);
 
 class cpu
 {
@@ -20,4 +21,5 @@ public:
     
     void execute_instruction(apron::instructions::instruction instruction);
     uint32_t* get_register(int index);
+    void print_state();
 };

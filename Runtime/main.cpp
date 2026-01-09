@@ -15,6 +15,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    cpu my_cpu = cpu(4);
-    my_cpu.execute_instruction(instruction(instruction_type::MEMORY_MOVE, 0x0, 0x0));
+    cpu my_cpu = cpu(8);
+    my_cpu.execute_instruction(instruction(instruction_type::MEMORY_WRITE, 0x0200, 0x1234));
+    my_cpu.execute_instruction(instruction(instruction_type::MEMORY_COPY, 0x0204, 0x0));
+    my_cpu.print_state();
 }

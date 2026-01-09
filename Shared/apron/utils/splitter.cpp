@@ -2,16 +2,16 @@
 
 APRON_API void apron::utils::split_u16(uint16_t base, uint8_t* a, uint8_t* b)
 {
-    *a = base >> 8;
-    *b = base;
+    if (a != nullptr) *a = base >> 8;
+    if (b != nullptr) *b = base & 0xFF;
 }
 
 APRON_API void apron::utils::split_u32(uint32_t base, uint8_t* a, uint8_t* b, uint8_t* c, uint8_t* d)
 {
-    *a = base >> 24;
-    *b = base >> 16;
-    *c = base >> 8;
-    *d = base >> 0;
+    if (a != nullptr) *a = base >> 24;
+    if (b != nullptr) *b = base >> 16;
+    if (c != nullptr) *c = base >> 8;
+    if (d != nullptr) *d = base >> 0 & 0xFF;
 }
 
 
